@@ -46,19 +46,3 @@ p {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
 }
-
-.main {
-  margin-top: 80px;
-}
-
-@media (max-width: 600px) {
-  .main {
-    margin-top: 133px;
-  }
-}
-
-@media (max-width: 500px) {
-  .main {
-    margin-top: 80px;
-  }
-}

@@ -9,29 +9,61 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="scripts/scripts.js" defer></script>
 </head>
 
 <body>
     <header class="header">
         <div class="container-sm">
-            <div class="row header__container">
-                <nav class="col-2 header__nav">
+            <div class="row header__container header-desktop">
+                <nav class="col-xl-2 col-lg-3 col-md-3 header__nav">
                     <div>
                         <a href="" class="header__nav-link">Услуги</a>
                         <span class="header__nav-span"></span>
                     </div>
-                    <!-- <a href="" class="header__nav-link">Портфолио</a> -->
                     <div>
                         <a href="" class="header__nav-link">Стоимость</a>
                         <span class="header__nav-span"></span>
                     </div>
                 </nav>
-                <div class="col-5 header__contacs">
-                    <a href="+7 123 456 78 91" class="header__tel">+7 (928) 706 73 34</a>
+                <div class="col-xl-5 col-lg-6 col-md-8 header__contacs">
+                    <a href="+7 928 706 73 34" class="header__tel">+7 (928) 706 73 34</a>
                     <a href="  " class="header__link">Заказать звонок</a>
                 </div>
             </div>
         </div>
+        <div class="container-sm visually-hidden header-mobile">
+            <div class="header-mobile__container">
+                <div class="header-mobile__burger">
+                    <div class="header-mobile__burger-btn">
+                        <span class="header-mobile__burger-layer header-mobile__burger-layer-1"></span>
+                        <span class="header-mobile__burger-layer header-mobile__burger-layer-2"></span>
+                        <span class="header-mobile__burger-layer header-mobile__burger-layer-3"></span>
+                    </div>
+                    <div class="header-mobile__burger-menu"></div>
+                </div>
+                <a href="+7 928 706 73 34" class="header-mobile__tel">+7 (928) 706 73 34</a>
+            </div>
+        </div>
+        
+        <!-- <div class="container-sm">
+            <div class="header__container">
+                <nav class=" header__nav">
+                    <div>
+                        <a href="" class="header__nav-link">Услуги</a>
+                        <span class="header__nav-span"></span>
+                    </div>
+                    <div>
+                        <a href="" class="header__nav-link">Стоимость</a>
+                        <span class="header__nav-span"></span>
+                    </div>
+                </nav>
+                <div class="header__contacs">
+                    <a href="+7 123 456 78 91" class="header__tel">+7 (928) 706 73 34</a>
+                    <a href="  " class="header__link">Заказать звонок</a>
+                </div>
+            </div>
+        </div> -->
     </header>
     <main class="main">
         <section class="section-services">
