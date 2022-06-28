@@ -9,7 +9,15 @@
 
         let screenWidth = window.screen.width;
         let screenHeight = window.screen.height;
-    
+
+        const controlMAinMarginTop = () => {
+          const main = document.querySelector('.main')
+          const header = document.querySelector('.header')
+          const heightHeader = window.getComputedStyle(header).height;
+          console.log(heightHeader);
+          main.style.marginTop = `${heightHeader}`;
+          console.log(main);
+        }
         const toggleBurger = () => {
           if (screenWidth <= 1000) {
             console.log(' меньше 1000');
@@ -22,8 +30,12 @@
           }
         };
         toggleBurger();
-    
+        
+
+        controlMAinMarginTop()
+
         window.addEventListener("resize", () => {
+          controlMAinMarginTop()
           screenWidth = window.innerWidth;
           screenHeight = window.innerHeight;
     
@@ -40,6 +52,7 @@
         } else {
 
         }
+        
     }
 
     const main = () => {
