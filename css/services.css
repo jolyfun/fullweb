@@ -57,3 +57,29 @@
     background-color: #fff;
     
 }
+
+@media (max-width: 1200px) {
+    .section-services__item-block {
+        padding: 0 70px;
+        margin-bottom: 70px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .section-services__item-block {
+        padding: 0 90px;
+        margin-bottom: 45px;
+    }
+
+    .section-services__item-block:not(:last-child) {
+        margin-bottom: 45px;
+    }
+}
+
+@media (max-width: 500px) {
+    .section-services__item-block {
+        padding: 0 40px;
+        margin-bottom: 45px;
+    }
+
+}

@@ -4,7 +4,8 @@
     right: 0;
     left: 0;
     z-index: 5;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: #fbfbfb;
     box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
 }
 
@@ -121,22 +122,4 @@
     font-weight: bold;
     font-size: 18px;
     color: #1F1F24;
-}
-
-@media (max-width: 1200px) {
-    .section-services__item-block {
-        padding: 0 70px;
-        margin-bottom: 70px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .section-services__item-block {
-        padding: 0 90px;
-        margin-bottom: 45px;
-    }
-
-    .section-services__item-block:not(:last-child) {
-        margin-bottom: 45px;
-    }
 }
