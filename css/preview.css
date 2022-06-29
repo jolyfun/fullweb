@@ -25,6 +25,11 @@
     font-size: 70px;
     color: #1f1f24;
     margin-bottom: 20px;
+    min-height: 81px;
+}
+
+.typed-cursor {
+    display: none;
 }
 
 .section-preview__span {
@@ -32,6 +37,7 @@
     margin-bottom: 50px;
     font-size: 20px;
     color: #8993ad;
+    min-height: 23px;
 }
 
 .section-preview__link {
@@ -109,6 +115,7 @@
     .section-preview__title {
         margin-bottom: 10px;
         font-size: 30px;
+        min-height: 0;
     }
 
     .section-preview__span {
