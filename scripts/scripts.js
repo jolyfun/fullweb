@@ -73,9 +73,25 @@
     });
   };
 
+  const animationBackgroundPrice = () => {
+    VANTA.FOG({
+      el: "#price",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      highlightColor: 0xffa300,
+      midtoneColor: 0x9b00ff,
+      lowlightColor: 0xffb400,
+      baseColor: 0xff
+    })
+  }
+
   const main = () => {
     header();
     animationText();
+    animationBackgroundPrice()
   };
 
   main();
