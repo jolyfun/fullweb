@@ -2,14 +2,26 @@
 
 (() => {
   const header = () => {
+    const body = document.body;
     const headerMobile = document.querySelector(".header-mobile");
     const headerDesktop = document.querySelector(".header-desktop");
-    const burgerBtn = document.querySelector('.header-mobile__burger-btn')
-    const burgerLine1 = document.querySelector('.header-mobile__burger-layer-1')
-    const burgerLine2 = document.querySelector('.header-mobile__burger-layer-2')
-    const burgerLine3 = document.querySelector('.header-mobile__burger-layer-3')
-    const burgerLine4 = document.querySelector('.header-mobile__burger-layer-4')
-    const burgerLine5 = document.querySelector('.header-mobile__burger-layer-5')
+    const burgerBtn = document.querySelector(".header-mobile__burger-btn");
+    const burgerLine1 = document.querySelector(
+      ".header-mobile__burger-layer-1"
+    );
+    const burgerLine2 = document.querySelector(
+      ".header-mobile__burger-layer-2"
+    );
+    const burgerLine3 = document.querySelector(
+      ".header-mobile__burger-layer-3"
+    );
+    const burgerLine4 = document.querySelector(
+      ".header-mobile__burger-layer-4"
+    );
+    const burgerLine5 = document.querySelector(
+      ".header-mobile__burger-layer-5"
+    );
+    console.log(body);
 
     let screenWidth = window.screen.width;
     let screenHeight = window.screen.height;
@@ -31,110 +43,167 @@
       }
     };
 
+    let burgerStatus = "close";
+
     const controlHeightBurgerMenu = () => {
-      const menuBuger = document.querySelector('.header-mobile__burger-menu');
-      const preview = document.querySelector('.section-preview');
-      const heightPreview = Number(window.getComputedStyle(preview).height.split('p')[0]);
-      const header = document.querySelector('.header-mobile')
-      const heightHeader = Number(window.getComputedStyle(header).height.split('p')[0])
-      const widthBurgerMenu = Number(window.getComputedStyle(menuBuger).width.split('p')[0])
-      menuBuger.style.height = `${heightPreview + heightHeader}px`
-      menuBuger.style.left = `-${widthBurgerMenu}px`
-    }
-    
+      const menuBuger = document.querySelector(".header-mobile__burger-menu");
+      const preview = document.querySelector(".section-preview");
+      const heightPreview = Number(
+        window.getComputedStyle(preview).height.split("p")[0]
+      );
+      const header = document.querySelector(".header-mobile");
+      const heightHeader = Number(
+        window.getComputedStyle(header).height.split("p")[0]
+      );
+      menuBuger.style.height = `${heightPreview + heightHeader}px`;
+      if (screenWidth <= 570) {
+        menuBuger.style.width = "100%";
+      } else {
+        menuBuger.style.width = "250px";
+      }
+
+      if (burgerStatus === "close") {
+        const widthBurgerMenu = Number(
+          window.getComputedStyle(menuBuger).width.split("p")[0]
+        );
+        menuBuger.style.left = `-${widthBurgerMenu}px`;
+      }
+    };
+
     toggleBurger();
 
     controlMAinMarginTop();
-    controlHeightBurgerMenu()
+    controlHeightBurgerMenu();
     window.addEventListener("resize", () => {
       controlMAinMarginTop();
       screenWidth = window.innerWidth;
       screenHeight = window.innerHeight;
 
-      //   console.log(screenWidth);
-      //   console.log(screenHeight);
-
       toggleBurger();
       controlMAinMarginTop();
-      // controlHeightBurgerMenu()
+      controlHeightBurgerMenu();
     });
 
-    let burgerStatus = "close";
-    
-    burgerBtn.addEventListener('click', () => {
+    burgerBtn.addEventListener("click", () => {
       if (burgerStatus == "close") {
-        console.log(5);
+        burgerBtn.classList.add("burger-btn__disable");
+        body.style.overflow = "hidden";
         setTimeout(() => {
-          burgerLine1.classList.add('layer-1-animation')
+          burgerLine1.classList.add("layer-1-animation");
         }, 0);
 
         setTimeout(() => {
-          burgerLine2.classList.add('layer-2-animation')
-        }, 300);
+          burgerLine2.classList.add("layer-2-animation");
+        }, 100);
 
         setTimeout(() => {
-          burgerLine3.classList.add('layer-3-animation')
-        }, 500);
+          burgerLine3.classList.add("layer-3-animation");
+        }, 200);
 
         setTimeout(() => {
-          burgerLine4.classList.add('layer-4-animation')
-        }, 700);
+          burgerLine4.classList.add("layer-4-animation");
+        }, 350);
 
         setTimeout(() => {
-          burgerLine5.classList.add('layer-5-animation')
-        }, 700);
+          burgerLine5.classList.add("layer-5-animation");
+        }, 350);
 
-        const menuBuger = document.querySelector('.header-mobile__burger-menu')
-        const widthBurgerMenu = Number(window.getComputedStyle(menuBuger).width.split('p')[0])
-        console.log(widthBurgerMenu);
-        let leftMax = 0;
-        let leftCount = -widthBurgerMenu;
-        const animationBurgerMenu = setInterval(() => {
-          if (leftCount >= leftMax) {
-            clearInterval(animationBurgerMenu)
-          }
-          ++leftCount
-          menuBuger.style.left = `${leftCount}px`
-        }, 2);
-  
-        burgerStatus = 'open'
+        setTimeout(() => {
+          burgerStatus = "open";
+          burgerBtn.classList.remove("burger-btn__disable");
+        }, 450);
+
+        controlHeightBurgerMenu();
+
+        const menuBuger = document.querySelector(".header-mobile__burger-menu");
+        const widthBurgerMenu = Number(
+          window.getComputedStyle(menuBuger).width.split("p")[0]
+        );
+        console.log(screenWidth);
+        if (screenWidth >= 570) {
+          let leftMax = 0;
+          let leftCount = -widthBurgerMenu;
+          const animationBurgerMenu = setInterval(() => {
+            if (leftCount >= leftMax) {
+              clearInterval(animationBurgerMenu);
+            }
+            ++leftCount;
+            ++leftCount;
+            menuBuger.style.left = `${leftCount}px`;
+          }, 1);
+        } else {
+          let leftMax = 0;
+          let leftCount = -widthBurgerMenu;
+          const animationBurgerMenu = setInterval(() => {
+            if (leftCount >= leftMax) {
+              clearInterval(animationBurgerMenu);
+            }
+            ++leftCount;
+            ++leftCount;
+            ++leftCount;
+            menuBuger.style.left = `${leftCount}px`;
+          }, 1);
+        }
       } else {
+        burgerBtn.classList.add("burger-btn__disable");
         setTimeout(() => {
-          burgerLine4.classList.remove('layer-4-animation')
+          burgerLine4.classList.remove("layer-4-animation");
         }, 0);
 
         setTimeout(() => {
-          burgerLine5.classList.remove('layer-5-animation')
+          burgerLine5.classList.remove("layer-5-animation");
         }, 0);
 
         setTimeout(() => {
-          burgerLine1.classList.remove('layer-1-animation')
-        }, 700);
+          burgerLine1.classList.remove("layer-1-animation");
+        }, 350);
 
         setTimeout(() => {
-          burgerLine2.classList.remove('layer-2-animation')
-        }, 500);
+          burgerLine2.classList.remove("layer-2-animation");
+        }, 200);
 
         setTimeout(() => {
-          burgerLine3.classList.remove('layer-3-animation')
-        }, 300);
+          burgerLine3.classList.remove("layer-3-animation");
+        }, 100);
 
-        const menuBuger = document.querySelector('.header-mobile__burger-menu')
-        const widthBurgerMenu = Number(window.getComputedStyle(menuBuger).width.split('p')[0])
-        console.log(widthBurgerMenu);
-        let leftMax = -widthBurgerMenu;
-        let leftCount = 0;
-        const animationBurgerMenu = setInterval(() => {
-          if (leftCount <= leftMax) {
-            clearInterval(animationBurgerMenu)
-          }
-          --leftCount
-          menuBuger.style.left = `${leftCount}px`
-        }, 2);
-        burgerStatus = 'close'
+        setTimeout(() => {
+          body.style.overflow = "auto";
+          burgerStatus = "close";
+          burgerBtn.classList.remove("burger-btn__disable");
+        }, 450);
+
+        controlHeightBurgerMenu();
+
+        const menuBuger = document.querySelector(".header-mobile__burger-menu");
+        const widthBurgerMenu = Number(
+          window.getComputedStyle(menuBuger).width.split("p")[0]
+        );
+        if (screenWidth >= 570) {
+          let leftMax = -widthBurgerMenu;
+          let leftCount = 0;
+          const animationBurgerMenu = setInterval(() => {
+            if (leftCount <= leftMax) {
+              clearInterval(animationBurgerMenu);
+            }
+            --leftCount;
+            --leftCount;
+            menuBuger.style.left = `${leftCount}px`;
+          }, 1);
+        } else {
+          let leftMax = -widthBurgerMenu;
+          let leftCount = 0;
+          const animationBurgerMenu = setInterval(() => {
+            if (leftCount <= leftMax) {
+              clearInterval(animationBurgerMenu);
+            }
+            --leftCount;
+            --leftCount;
+            --leftCount;
+            menuBuger.style.left = `${leftCount}px`;
+          }, 1);
+        }
       }
-    })
-
+    });
   };
 
   const animationText = () => {
@@ -166,19 +235,19 @@
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
+      minHeight: 200.0,
+      minWidth: 200.0,
       highlightColor: 0xffa300,
       midtoneColor: 0x9b00ff,
       lowlightColor: 0xffb400,
-      baseColor: 0xff
-    })
-  }
+      baseColor: 0xff,
+    });
+  };
 
   const main = () => {
     header();
     animationText();
-    animationBackgroundPrice()
+    animationBackgroundPrice();
   };
 
   main();
