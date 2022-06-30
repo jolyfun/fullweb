@@ -91,6 +91,7 @@
     .section-preview__title {
         margin-bottom: 10px;
         font-size: 30px;
+        min-height: 0;
     }
 
     .section-preview__span {
@@ -115,7 +116,6 @@
     .section-preview__title {
         margin-bottom: 10px;
         font-size: 30px;
-        min-height: 0;
     }
 
     .section-preview__span {
