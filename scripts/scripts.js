@@ -75,7 +75,7 @@
     controlMAinMarginTop();
     controlHeightBurgerMenu();
     window.addEventListener("resize", () => {
-      controlMAinMarginTop();
+      // controlMAinMarginTop();
       screenWidth = window.innerWidth;
       screenHeight = window.innerHeight;
 
@@ -87,7 +87,6 @@
     burgerBtn.addEventListener("click", () => {
       if (burgerStatus == "close") {
         burgerBtn.classList.add("burger-btn__disable");
-        body.style.overflow = "hidden";
         setTimeout(() => {
           burgerLine1.classList.add("layer-1-animation");
         }, 0);
@@ -167,7 +166,6 @@
         }, 100);
 
         setTimeout(() => {
-          body.style.overflow = "auto";
           burgerStatus = "close";
           burgerBtn.classList.remove("burger-btn__disable");
         }, 450);

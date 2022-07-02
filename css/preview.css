@@ -45,6 +45,11 @@
   padding: 20px 70px;
   color: #fff;
   background-color: orange;
+  transition: background-color .3s ease;
+}
+
+.section-preview__link:active {
+  background-color: #ff9900;
 }
 
 @media (max-width: 1200px) {
